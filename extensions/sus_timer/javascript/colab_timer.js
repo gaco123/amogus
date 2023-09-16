@@ -64,7 +64,7 @@ refreshTimer = (timerEl, notext = false) => {
     });
 };
 
-toggleNotification = (imgEl, audioEl, divEl) => {
+function toggleNotification(imgEl, audioEl, divEl) {
   audioEl.muted = !audioEl.muted;
   audioEl.currentTime = 0;
   audioEl.play();
