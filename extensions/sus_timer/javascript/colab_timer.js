@@ -45,7 +45,7 @@ refreshTimer = (timerEl, notext = false) => {
     timeout = null;
   }
   if (!notext) timerEl.innerText = "Connecting...";
-  fetch("file=static/colabTimer.txt", { cache: "no-store", headers: myHeaders })
+  fetch("file=static/colabTmp.txt", { cache: "no-store", headers: myHeaders })
     .then((response) => {
       if (response.status == 404) {
         timerEl.innerText = "Error. Colab disconnected!";
