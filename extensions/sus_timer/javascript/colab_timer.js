@@ -64,19 +64,6 @@ refreshTimer = (timerEl, notext = false) => {
     });
 };
 
-toggleNotification = (imgEl, audioEl, divEl) => {
-  audioEl.muted = !audioEl.muted;
-  audioEl.currentTime = 0;
-  audioEl.play();
-  divEl.title = !audioEl.muted
-    ? "Currently not-muted. Click to mute"
-    : "Currently muted. Click to unmute";
-  divEl.style.borderColor = !audioEl.muted ? "#00ff00" : "#ff0000";
-  imgEl.src = audioEl.muted
-    ? "https://api.iconify.design/ion:md-notifications-off.svg?color=%23ff0000"
-    : "https://api.iconify.design/ion:md-notifications.svg?color=%2300ff00";
-};
-
 onUiLoaded(function () {
   const quickSettings = gradioApp().querySelector("#quicksettings");
   const audioEl = gradioApp().querySelector("#audio_notification > audio");
@@ -121,7 +108,18 @@ onUiLoaded(function () {
     "https://api.iconify.design/ion:md-notifications.svg?color=%2300ff00";
   img2.width = 20;
   div3.appendChild(img2);
-  div3.onclick = () => toggleNotification(img2, audioEl, div3);
+  div3.onclick = () => {
+    audioEl.muted = !audioEl.muted;
+    audioEl.currentTime = 0;
+    audioEl.play();
+    div3.title = !audioEl.muted
+      ? "Currently not-muted. Click to mute"
+      : "Currently muted. Click to unmute";
+    div3.style.borderColor = !audioEl.muted ? "#00ff00" : "#ff0000";
+    img2.src = audioEl.muted
+      ? "https://api.iconify.design/ion:md-notifications-off.svg?color=%23ff0000"
+      : "https://api.iconify.design/ion:md-notifications.svg?color=%2300ff00";
+  }
   mainDiv.appendChild(div3);
 
   let toggleDarkModeDiv = document.createElement("div");
