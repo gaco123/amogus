@@ -115,11 +115,13 @@ onUiLoaded(function () {
     div3.title = !audioEl.muted
       ? "Currently not-muted. Click to mute"
       : "Currently muted. Click to unmute";
-    div3.style.borderColor = !audioEl.muted ? "#00ff00" : "#ff0000";
+    div3.style.borderColor = !audioEl.muted
+      ? "#00ff00"
+      : "#ff0000";
     img2.src = audioEl.muted
       ? "https://api.iconify.design/ion:md-notifications-off.svg?color=%23ff0000"
       : "https://api.iconify.design/ion:md-notifications.svg?color=%2300ff00";
-  }
+  };
   mainDiv.appendChild(div3);
 
   let toggleDarkModeDiv = document.createElement("div");
