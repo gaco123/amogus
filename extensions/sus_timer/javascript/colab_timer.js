@@ -64,7 +64,7 @@ refreshTimer = (timerEl, notext = false) => {
     });
 };
 
-function toggleNotification(imgEl, audioEl, divEl) {
+toggleNotification = (imgEl, audioEl, divEl) => {
   audioEl.muted = !audioEl.muted;
   audioEl.currentTime = 0;
   audioEl.play();
@@ -110,19 +110,19 @@ onUiLoaded(function () {
   }
   div2.onclick = () => refreshTimer(timerEl);
 
-  let audioMuteDiv = document.createElement("div");
-  audioMuteDiv.className = "gr-box";
-  audioMuteDiv.style =
+  let div3 = document.createElement("div");
+  div3.className = "gr-box";
+  div3.style =
     "gap: 0.5rem; border-radius:10px; display:flex;align-items:center;border-width:1px; display:flex; cursor: pointer; padding-block: 3px; width: fit-content;  padding-inline: 5px; border-color: lime; z-index: 999; background-color: transparent !important;";
-  audioMuteDiv.title = "Currently not-muted. Click to mute";
+  div3.title = "Currently not-muted. Click to mute";
 
   let img2 = document.createElement("img");
   img2.src =
     "https://api.iconify.design/ion:md-notifications.svg?color=%2300ff00";
   img2.width = 20;
-  audioMuteDiv.appendChild(img2);
-  audioMuteDiv.onclick = () => toggleNotification(img2, audioEl, audioMuteDiv);
-  mainDiv.appendChild(audioMuteDiv);
+  div3.appendChild(img2);
+  div3.onclick = () => toggleNotification(img2, audioEl, div3);
+  mainDiv.appendChild(div3);
 
   let toggleDarkModeDiv = document.createElement("div");
   toggleDarkModeDiv.className = "gr-box";
